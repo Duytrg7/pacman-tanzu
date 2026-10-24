@@ -22,9 +22,9 @@ spec:
           mkdir -p /bitnami/mongodb
           chown -R "1001:1001" "/bitnami/mongodb"
         command:
-        - /bin/bash
+        - /bin/sh
         - -ec
-        image: docker.io/bitnami/bitnami-shell:10-debian-10-r158
+        image: busybox:1.36
         imagePullPolicy: Always
         name: volume-permissions
         resources: {}
@@ -46,7 +46,7 @@ spec:
         persistentVolumeClaim:
           claimName: mongo-storage
       containers:
-      - image: bitnami/mongodb:4.4.8
+      - image: bitnamilegacy/mongodb:4.4.8
         name: mongo
         env:
         - name: MONGODB_ROOT_PASSWORD
